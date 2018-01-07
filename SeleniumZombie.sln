@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumZombie", "SeleniumZombie\SeleniumZombie.csproj", "{B9DAC197-6C25-43A9-9568-B567ADA1D6EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumZombie.Common", "SeleniumZombie.Common\SeleniumZombie.Common.csproj", "{22DAB2D0-0D53-4C58-8E81-D2966B5290F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumZombie.ChromeDriver", "SeleniumZombie.ChromeDriver\SeleniumZombie.ChromeDriver.csproj", "{96AF1298-BCAD-4D5D-8B7C-AFBDD553B19D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumZombie.Selenium", "SeleniumZombie.Selenium\SeleniumZombie.Selenium.csproj", "{94AAF315-EB7C-4C6F-851D-3C6E9A41E0F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumZombie.Service", "SeleniumZombie.Service\SeleniumZombie.Service.csproj", "{81B475DE-6959-4F16-A8E1-02E8537E6E9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9DAC197-6C25-43A9-9568-B567ADA1D6EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DAC197-6C25-43A9-9568-B567ADA1D6EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DAC197-6C25-43A9-9568-B567ADA1D6EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DAC197-6C25-43A9-9568-B567ADA1D6EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22DAB2D0-0D53-4C58-8E81-D2966B5290F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22DAB2D0-0D53-4C58-8E81-D2966B5290F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22DAB2D0-0D53-4C58-8E81-D2966B5290F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22DAB2D0-0D53-4C58-8E81-D2966B5290F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96AF1298-BCAD-4D5D-8B7C-AFBDD553B19D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96AF1298-BCAD-4D5D-8B7C-AFBDD553B19D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96AF1298-BCAD-4D5D-8B7C-AFBDD553B19D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96AF1298-BCAD-4D5D-8B7C-AFBDD553B19D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94AAF315-EB7C-4C6F-851D-3C6E9A41E0F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94AAF315-EB7C-4C6F-851D-3C6E9A41E0F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94AAF315-EB7C-4C6F-851D-3C6E9A41E0F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94AAF315-EB7C-4C6F-851D-3C6E9A41E0F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81B475DE-6959-4F16-A8E1-02E8537E6E9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81B475DE-6959-4F16-A8E1-02E8537E6E9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81B475DE-6959-4F16-A8E1-02E8537E6E9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81B475DE-6959-4F16-A8E1-02E8537E6E9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
