@@ -64,7 +64,6 @@ namespace SeleniumZombie
             var hubAddress = ConfigurationManager.AppSettings["HubAddress"];
 
             _seleniumZombieService = new SeleniumZombieService(startTime, endTime, hubAddress);
-
         }
 
         private void Run()

@@ -6,9 +6,7 @@ namespace SeleniumZombie
     {
         static void Main()
         {
-            //ServiceBase.Run(new WindowsService());
-            var service = new WindowsService();
-            service.RunOnce();
+            ServiceBase.Run(new WindowsService());
         }
     }
 }
