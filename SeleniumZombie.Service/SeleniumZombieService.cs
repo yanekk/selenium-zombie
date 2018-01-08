@@ -37,7 +37,8 @@ namespace SeleniumZombie.Service
 
         public void Start()
         {
-            var arguments = string.Join(" ", 
+            var arguments = string.Join(" ",
+                @"-Dselenium.LOGGER.level=WARNING",
                 @"-Dwebdriver.chrome.driver="".\chromedriver.exe""", 
                 "-jar selenium-server-standalone.jar", 
                 "-role node", 
