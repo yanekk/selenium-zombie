@@ -4,27 +4,24 @@ using NLog;
 using SeleniumZombie.ChromeDriver;
 using SeleniumZombie.Common;
 using SeleniumZombie.Selenium;
+using SeleniumZombie.Service.Configuration;
 using SeleniumZombie.Service.Update;
 
 namespace SeleniumZombie.Service
 {
     public class SeleniumZombieService
     {
+        private readonly ConfigurationModel _configuration;
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
-        private readonly TimeSpan _startTime;
-        private readonly TimeSpan _endTime;
-        private readonly string _hubAddress;
-
         private readonly ModuleUpdater _moduleUpdater;
 
         private bool _isRunning;
         private Process _nodeProcess;
 
-        public SeleniumZombieService(TimeSpan startTime, TimeSpan endTime, string hubAddress)
+        public SeleniumZombieService(ConfigurationModel configuration)
         {
-            _startTime = startTime;
-            _endTime = endTime;
-            _hubAddress = hubAddress;
+            _configuration = configuration;
+
             _moduleUpdater = new ModuleUpdater(
                 new ChromeDriverDownloader(),
                 new SeleniumDownloader());
@@ -32,7 +29,8 @@ namespace SeleniumZombie.Service
 
         public void Update()
         {
-            _moduleUpdater.Update();
+            if (_configuration.AutoUpdate)
+                _moduleUpdater.Update();
         }
 
         public void Start()
@@ -42,7 +40,7 @@ namespace SeleniumZombie.Service
                 @"-Dwebdriver.chrome.driver="".\chromedriver.exe""", 
                 "-jar selenium-server-standalone.jar", 
                 "-role node", 
-                $"-hub http://{_hubAddress}/grid/register", 
+                $"-hub http://{_configuration.HubAddress}/grid/register", 
                 "-maxSession 8", 
                 "-browser browserName=chrome,maxInstances=8");
 
@@ -117,8 +115,8 @@ namespace SeleniumZombie.Service
 
         private bool IsDateWithinBoundaries(DateTime date)
         {
-            var startDate = DateTime.Today + _startTime;
-            var endDate = DateTime.Today + _endTime;
+            var startDate = DateTime.Today + _configuration.StartTime;
+            var endDate = DateTime.Today + _configuration.EndTime;
 
             return date >= startDate && endDate >= date;
         }

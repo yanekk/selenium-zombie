@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Configuration;
 using System.ServiceProcess;
 using System.Text;
 using System.Timers;
 using NLog;
 using NUnit.Framework.Internal;
 using SeleniumZombie.Service;
+using SeleniumZombie.Service.Configuration;
 using Logger = NLog.Logger;
 
 namespace SeleniumZombie
@@ -59,11 +59,7 @@ namespace SeleniumZombie
         private void CreateService()
         {
             _logger.Info("Starting Windows service...");
-            var startTime = TimeSpan.Parse(ConfigurationManager.AppSettings["StartTime"]);
-            var endTime = TimeSpan.Parse(ConfigurationManager.AppSettings["EndTime"]);
-            var hubAddress = ConfigurationManager.AppSettings["HubAddress"];
-
-            _seleniumZombieService = new SeleniumZombieService(startTime, endTime, hubAddress);
+            _seleniumZombieService = new SeleniumZombieService(ConfigurationFactory.Create());
         }
 
         private void Run()
