@@ -7,18 +7,25 @@ namespace SeleniumZombie.Service.Configuration
     {
         public static ConfigurationModel Create()
         {
-            var startTime = TimeSpan.Parse(ConfigurationManager.AppSettings["StartTime"]);
-            var endTime = TimeSpan.Parse(ConfigurationManager.AppSettings["EndTime"]);
-            var hubAddress = ConfigurationManager.AppSettings["HubAddress"];
-            var autoUpdate = bool.Parse(ConfigurationManager.AppSettings["AutoUpdate"]);
+            var startTime = TimeSpan.Parse(GetConfigurationSetting("StartTime"));
+            var endTime = TimeSpan.Parse(GetConfigurationSetting("EndTime"));
+            var hubAddress = GetConfigurationSetting("HubAddress");
+            var autoUpdate = bool.Parse(GetConfigurationSetting("AutoUpdate"));
+            var chromeInstances = int.Parse(GetConfigurationSetting("ChromeInstances"));
 
             return new ConfigurationModel
             {
                 StartTime = startTime,
                 EndTime = endTime,
                 HubAddress = hubAddress,
-                AutoUpdate = autoUpdate
+                AutoUpdate = autoUpdate,
+                ChromeInstances = chromeInstances
             };
+        }
+
+        private static string GetConfigurationSetting(string key)
+        {
+            return ConfigurationManager.AppSettings[key];
         }
     }
 }

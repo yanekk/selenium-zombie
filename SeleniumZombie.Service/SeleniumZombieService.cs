@@ -41,8 +41,8 @@ namespace SeleniumZombie.Service
                 "-jar selenium-server-standalone.jar", 
                 "-role node", 
                 $"-hub http://{_configuration.HubAddress}/grid/register", 
-                "-maxSession 8", 
-                "-browser browserName=chrome,maxInstances=8");
+                $"-maxSession {_configuration.ChromeInstances}", 
+                $"-browser browserName=chrome,maxInstances={_configuration.ChromeInstances}");
 
             _logger.Info("Executing java with following parameters: " + arguments);
 
