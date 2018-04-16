@@ -113,10 +113,18 @@ namespace SeleniumZombie.Service
                 driverProcess.Kill();
         }
 
-        private bool IsDateWithinBoundaries(DateTime date)
+        public bool IsDateWithinBoundaries(DateTime date)
         {
             var startDate = DateTime.Today + _configuration.StartTime;
             var endDate = DateTime.Today + _configuration.EndTime;
+
+            if (startDate > endDate)
+            {
+                if(date >= startDate)
+                    endDate = endDate.AddDays(1);
+                if(date <= startDate)
+                    startDate = startDate.AddDays(-1);
+            }
 
             return date >= startDate && endDate >= date;
         }
