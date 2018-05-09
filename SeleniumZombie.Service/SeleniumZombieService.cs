@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using NLog;
 using SeleniumZombie.ChromeDriver;
@@ -35,15 +36,21 @@ namespace SeleniumZombie.Service
 
         public void Start()
         {
-            var arguments = string.Join(" ",
+            var argumentList = new List<string>
+            {
                 @"-Dselenium.LOGGER.level=WARNING",
-                @"-Dwebdriver.chrome.driver="".\chromedriver.exe""", 
-                "-jar selenium-server-standalone.jar", 
-                "-role node", 
-                $"-hub http://{_configuration.HubAddress}/grid/register", 
-                $"-maxSession {_configuration.ChromeInstances}", 
+                @"-Dwebdriver.chrome.driver="".\chromedriver.exe""",
+                "-jar selenium-server-standalone.jar",
+                "-role node",
+                $"-hub http://{_configuration.HubAddress}/grid/register",
+                $"-maxSession {_configuration.ChromeInstances}",
                 "-port 5555",
-                $"-browser browserName=chrome,maxInstances={_configuration.ChromeInstances}");
+                $"-browser browserName=chrome,maxInstances={_configuration.ChromeInstances}"
+            };
+
+            if(!string.IsNullOrEmpty(_configuration.Host))
+                argumentList.Add(string.Format("-host {0}", _configuration.Host));
+            var arguments = string.Join(" ", argumentList);
 
             _logger.Info("Executing java with following parameters: " + arguments);
 

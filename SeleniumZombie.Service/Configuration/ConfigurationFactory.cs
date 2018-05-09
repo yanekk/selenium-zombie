@@ -12,6 +12,7 @@ namespace SeleniumZombie.Service.Configuration
             var hubAddress = GetConfigurationSetting("HubAddress");
             var autoUpdate = bool.Parse(GetConfigurationSetting("AutoUpdate"));
             var chromeInstances = int.Parse(GetConfigurationSetting("ChromeInstances"));
+            var host = GetConfigurationSetting("Host");
 
             return new ConfigurationModel
             {
@@ -19,7 +20,8 @@ namespace SeleniumZombie.Service.Configuration
                 EndTime = endTime,
                 HubAddress = hubAddress,
                 AutoUpdate = autoUpdate,
-                ChromeInstances = chromeInstances
+                ChromeInstances = chromeInstances,
+                Host = host
             };
         }
 
