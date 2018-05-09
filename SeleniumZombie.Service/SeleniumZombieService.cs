@@ -42,6 +42,7 @@ namespace SeleniumZombie.Service
                 "-role node", 
                 $"-hub http://{_configuration.HubAddress}/grid/register", 
                 $"-maxSession {_configuration.ChromeInstances}", 
+                "-port 5555",
                 $"-browser browserName=chrome,maxInstances={_configuration.ChromeInstances}");
 
             _logger.Info("Executing java with following parameters: " + arguments);
