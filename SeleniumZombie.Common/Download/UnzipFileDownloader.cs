@@ -17,7 +17,7 @@ namespace SeleniumZombie.Common.Download
         public void Download(string fromUrl, string toPath)
         {
             var zipFilePath = toPath + ".zip";
-            var zipFileDirectory = Path.GetFileNameWithoutExtension(toPath) + ".temp";
+            var zipFileDirectory = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
 
             _fileDownloader.Download(fromUrl, zipFilePath);
             _logger.Info($"Unzipping {zipFilePath} to {zipFileDirectory}...");
@@ -30,6 +30,7 @@ namespace SeleniumZombie.Common.Download
             File.Copy(file, toPath, true);
 
             _logger.Info($"Deleting {zipFileDirectory}.");
+
             Directory.Delete(zipFileDirectory, true);
             File.Delete(zipFilePath);
         }
